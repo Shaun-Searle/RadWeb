@@ -22,11 +22,8 @@
     require 'scripts/function.php';
 
     ?>
-    
-    </body>
-    <div class="row main-content">
 
-    <div class="d-flex flex-wrap">
+    <div class="statistics-container">
 
     <?php 
     
@@ -37,9 +34,7 @@
     createAllGraphs(); 
     
     ?>
-  
 
     </div>
 
-    </div>
 </html>

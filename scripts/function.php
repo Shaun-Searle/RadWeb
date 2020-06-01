@@ -365,7 +365,7 @@ function createGraph($genre)
 
     imagepng($chart, './image/' . $genre . '-graph.png');
 
-    echo sprintf('<img src="./image/%s-graph.png" alt="No Image"></img>', $genre);
+    echo sprintf('<img class=stat-image src="./image/%s-graph.png" alt="No Image"></img>', $genre);
 
     imagedestroy($chart);
 }

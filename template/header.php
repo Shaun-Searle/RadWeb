@@ -37,7 +37,7 @@ $pages = array(
 <!-- Navbar and menu -->
 <header>
     <div class="row">
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
     <a class="navbar-brand" href="http://<?php echo $_SERVER['SERVER_NAME'] . "/moviedb" ?>">MovieDB</a>
     <button 
         class="navbar-toggler" 

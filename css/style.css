@@ -1,19 +1,10 @@
 body {
-    margin: 35px auto;
     background-color: #fdfdfd;
 }
 
 /* Expand nav bar on click */
 #navSearch:focus {
     width: 400px;
-}
-
-.main-content {
-    margin-top: 56px;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-  
 }
 
 /* Text for movie card */
@@ -41,11 +32,9 @@ body {
 
 /* Result/Movie styling */
 .ml-item {
-    width: 150px;
-    
-    margin-bottom: 10px;
-    
-    margin: 5px;
+    width: 8.8%;
+    margin: 0.6%;
+    float: left;
     
     position: relative;
     text-align: center;
@@ -55,14 +44,20 @@ body {
     border: 1px solid salmon;
 }
 
-
 .ml-item img {
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 0;
+
 }
 
 .card-container {
-    height: 100%
+
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    display: flex;
+    width: 100%;
 }
 
 .card-container h1 {
@@ -70,14 +65,14 @@ body {
     color: palevioletred;
 }
 
-/* Info page styling and placment */
+
+/* Info page styling and placement */
 .mv-info {
-    margin-left: 20px;
-    width: 800px;
-    top: 77px;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
     padding: 10px 10px;
     position: absolute;
-    min-height: 400px;
+    min-height: 40%;
     opacity: 100%;
     font-size: large;
 
@@ -99,46 +94,39 @@ body {
     float: left;
 }
 
-/* Carousel */
-#popCarousel {
-    width: 100%;
-    min-height: 350px;
-    max-height: 350px;
-    box-sizing: border-box;
-}
-
-.carousel-item {
-    min-width: 100%;
-    max-height: 350px;
-    min-height: 350px;
-    background-position: center;
-}
-
-.carousel-item h5,.carousel-item p {
-
-    text-shadow: 0 0 8px #000;
-    padding: 0.3rem;
-}
-
 /* cover image on info page */
 .info-cover {
     
     position: absolute;
     z-index: -1;
     width: 100%;
-    height: 600px;
+    height: 100%;
     opacity: 70%;
-    top: 56px;
+    /* top: 20px; */
     left: 0;
     background-position: center;
 
+}
+
+/* Carousel */
+#popCarousel {
+    width: 100%;
+    max-height: 350px;
+    /* box-sizing: border-box; */
+}
+
+.carousel-item {
+    min-width: 100%;
+    max-height: 350px;
+   
+    background-position: center;
 }
 
 /* Width and margins for advanced search */
 .adv-search {
     width: 35%;
     margin-left: 10px;
-    margin-top: 76px;
+    margin-top: 20px;
     display: block;
     box-sizing: border-box;
 }
@@ -164,5 +152,53 @@ body {
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
+
+.statistics-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.stat-image {
+    width: 30%;
+}
+
+    /* For hiding carousel text on much smaller devices, and adjusting search */
+@media(max-width: 670px) {
+ 
+.carousel {
+    overflow: hidden;
+}
+.carousel-caption p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+    #navSearch {
+        margin-top: 10px;
+    }
+
+    #navSearch:focus {
+        width: 100%;
+    }
+
+    .mv-info {
+        font-size: medium;
+    }
+}
+
+/* Scaling on different screens */
+
+@media(max-width: 1365px) {.ml-item {width: 11.3%;} .adv-search {width: 50%;}}
+
+@media screen and (min-width: 992px) and (max-width:1100px){.ml-item{ width: 15.46%;}}
+
+@media screen and (max-width:991px){.ml-item{ width: 23.8%;}.stat-image {width: 45%;}}
+
+@media screen and (max-width:480px){.ml-item{width: 47%; margin: 1.5%;} .stat-image { width: 90%;}}
+
 
 

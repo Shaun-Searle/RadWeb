@@ -20,10 +20,9 @@
     require 'scripts/function.php';
 ?>
 
-<body class="col-sm-10 align-center">
-    <div class="row main-content">
-        
-    <div id="popCarousel" class="carousel slide" data-ride="carousel">
+
+
+<div id="popCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#popCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#popCarousel" data-slide-to="1"></li>
@@ -50,34 +49,36 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-</div>
 
-        <div class="d-flex flex-wrap card-container">
+<body class="col-sm-10">
+
+      <div class="row">
+        <div class="center">
+        <div class="card-container align-self-center">
         <h1 class="m-2">Comedy</h1>
             <?php @listGenre(20, "Comedy"); ?>
         </div>
 
-        <div class="d-flex flex-wrap card-container">
+        <div class="card-container">
         <h1 class="m-2">Action/Adventure</h1>
             <?php @listGenre(20, "Action/Adventure"); ?>
         </div>
 
-        <div class="d-flex flex-wrap card-container">
+        <div class="card-container">
         <h1 class="m-2">Drama</h1>
             <?php @listGenre(20, "Drama"); ?>
         </div>
 
-        <div class="d-flex flex-wrap card-container">
+        <div class="card-container">
         <h1 class="m-2">SciFi</h1>
             <?php @listGenre(20, "SciFi"); ?>
         </div>
 
-        <div class="d-flex flex-wrap card-container">
+        <div class="card-container">
         <h1 class="m-2">Family</h1>
             <?php @listGenre(20, "Family"); ?>
         </div>
-       
-
+        </div>
     </div>
 </body>
 

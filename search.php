@@ -54,12 +54,12 @@
     ?>
     </article>
     </div>
-    <div class="d-flex flex-wrap card-container"><?php 
+    <div class="card-container"><?php 
 
     // Search bar is handled on same page
     if (isset($_GET['searchBar'])) {
 
-        // Main Search function returns echo fo each item
+        // Main Search function returns echo for each item
         searchDB($_GET['searchBar'], "", "", "");
     }
     
@@ -70,7 +70,7 @@
         $rating = $_POST['searchRating'];
         $year = $_POST['searchYear'];
 
-        // Main Search function returns echo fo each item
+        // Main Search function returns echo for each item
         searchDB($term, $genre, $rating, $year);
     }
 
