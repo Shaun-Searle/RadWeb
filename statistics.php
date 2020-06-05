@@ -15,7 +15,7 @@
      * @license  MIT https://opensource.org/licenses/MIT
      * @link     No Link
      */
-   
+
     $currentPage = "Statistics";
 
     require 'template/header.php';

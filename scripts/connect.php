@@ -14,14 +14,13 @@
 
     // mysqli connection script
     
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "movie_db";
+    // Constants for connection
+    require_once 'config.php';
 
 try {
     // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
     // Check connection
 
 }

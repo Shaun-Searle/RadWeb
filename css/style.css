@@ -105,6 +105,7 @@ body {
     /* top: 20px; */
     left: 0;
     background-position: center;
+    background-position: 50%;
 
 }
 
@@ -198,7 +199,7 @@ body {
 
 @media screen and (max-width:991px){.ml-item{ width: 23.8%;}.stat-image {width: 45%;}}
 
-@media screen and (max-width:480px){.ml-item{width: 47%; margin: 1.5%;} .stat-image { width: 90%;}}
+@media screen and (max-width:480px){.ml-item{width: 47%; margin: 1.5%;} .stat-image { width: 90%;} .info-cover{background-size: cover;} .adv-search {width: 95%; margin-left: 2.5%; margin-right: 2.5%;}}
 
 
 

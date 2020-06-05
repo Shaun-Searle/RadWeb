@@ -17,6 +17,7 @@ $pages = array(
     'Home' => '/moviedb',
     'Search' => '/moviedb/search.php',
     'Statistics' => '/moviedb/statistics.php',
+    'Newsletter' => '/moviedb/newsletter.php'
     
 );
 
