@@ -1,5 +1,6 @@
 body {
     background-color: #fdfdfd;
+    height: 100%;
 }
 
 /* Expand nav bar on click */
@@ -125,11 +126,16 @@ body {
 
 /* Width and margins for advanced search */
 .adv-search {
-    width: 35%;
-    margin-left: 10px;
+    width: 98.8%;
+    margin-left: 0.6%;
+    margin-right: 0.6%;
     margin-top: 20px;
     display: block;
     box-sizing: border-box;
+}
+
+.space-size {
+    margin-left: 0.45%;
 }
 
 
@@ -166,6 +172,21 @@ body {
     width: 30%;
 }
 
+.subscribe-container {
+    
+    /* margin: auto; */
+    height: 100%;
+    margin-top: 10%;
+    /* align-items: center; */
+}
+
+.subscribe-form {
+    padding: 20px;
+    border-radius: 15px;
+    width: 30%;
+    
+}
+
     /* For hiding carousel text on much smaller devices, and adjusting search */
 @media(max-width: 670px) {
  
@@ -193,13 +214,22 @@ body {
 
 /* Scaling on different screens */
 
-@media(max-width: 1365px) {.ml-item {width: 11.3%;} .adv-search {width: 50%;}}
+@media(max-width: 1365px) {.ml-item {width: 11.3%;}}
 
 @media screen and (min-width: 992px) and (max-width:1100px){.ml-item{ width: 15.46%;}}
 
-@media screen and (max-width:991px){.ml-item{ width: 23.8%;}.stat-image {width: 45%;}}
+@media screen and (max-width:991px){
+    .ml-item{width: 23.8%;}
+    .stat-image {width: 45%;}
+    /* .subscribe-form {width: 60%;} */
+}
 
-@media screen and (max-width:480px){.ml-item{width: 47%; margin: 1.5%;} .stat-image { width: 90%;} .info-cover{background-size: cover;} .adv-search {width: 95%; margin-left: 2.5%; margin-right: 2.5%;}}
 
+@media screen and (max-width:480px){.ml-item{width: 47%; margin: 1.5%;} .stat-image { width: 90%;} .info-cover{background-size: cover;}}
 
+@media screen and (max-width:371px){
+    .space-size {
+    margin-left: 1%;
+    margin-top: 1%;
+}}
 

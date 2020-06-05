@@ -413,7 +413,7 @@ function ratingCombo()
         if ($result->num_rows > 0) {
 
             echo '<label for="searchRating"></label>
-                <select class="form-control-sm" name="searchRating">
+                <select class="form-control-sm ml-0 mr-1" name="searchRating">
                 <option></option>
                 ';
 
