@@ -20,33 +20,88 @@
     require 'scripts/function.php';
 ?>
 
-<body>
+<!-- <body> -->
 
-<div class="subscribe-container d-flex justify-content-center align-items-center">
-<form class="bg-primary subscribe-form">
-<div class="form-group">
+<div class="container subscribe-container d-flex justify-content-center ">
+<form class="bg-primary subscribe-form" id="subscribeForm" action="newsletter.php" method="post">
+  <div class="form-row">
+  <div class="form-group col-md-6 user-details">
     <label for="inputUsername">Full Name</label>
-    <input type="email" class="form-control form-control-sm" id="inputUsername" aria-describedby="userHelp" placeholder="Enter Full Name">
+    <input type="text" class="form-control" name="inputName" id="inputName" placeholder="Enter Full Name">
     <!-- <small id="emailHelp" class="form-text text-muted"></small> -->
   </div>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <!-- <small id="emailHelp" class="form-text text-muted"></small> -->
+    <div class="form-group col-md-6 user-details">
+      <label for="inputEmail">Email address</label>
+      <input type="email" class="form-control" name="inputEmail" id="inputEmail" placeholder="Enter email">
+      <!-- <small id="emailHelp" class="form-text text-muted"></small> -->
+    </div>
   </div>
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="checkReleases">
-    <label class="form-check-label" for="checkReleases">Hot List</label>
+  
+  <div class="form-row w-100">
+  <div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="subRadio" id="bothRadio" checked="" value="both">
+  <label class="form-check-label" for="bothRadio">Both</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="subRadio" id="monthlyRadio" value="monthly">
+  <label class="form-check-label" for="monthlyRadio">Monthly</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="subRadio" id="hotRadio" value="hot">
+  <label class="form-check-label" for="hotRadio">New Releases</label>
+</div>
   </div>
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="checkMonthly">
-    <label class="form-check-label" for="checkMonthly">Monthly</label>
+ 
+  <div class="text-right">
+  <button type="submit" id="btnSubmit" class="btn btn-outline-dark">Sign Up!</button>
   </div>
-  <button type="submit" class="btn btn-dark mt-2">Submit</button>
+
+<div class="container mt-2">
+  <?php 
+  
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        $name = $_POST['inputName'];
+        $email = $_POST['inputEmail'];
+        $sub = $_POST['subRadio'];
+
+        $msg = "";
+
+        if (empty($name)) {
+            $msg .= "Name can not be empty!<br>";
+        }
+        if (empty($email)) {
+            $msg .= "Email can not be empty!<br>";
+        }
+        if (empty($sub)) {
+            $msg .= "Please select a subscription!<br>";
+        }
+
+        if (!empty($msg)) {
+            echo sprintf('<div class="alert alert-danger" role="alert">%s</div>', $msg);
+        } else {
+             subscribe($name, $email, $sub);
+        }
+        
+
+        // Main Search function returns echo for each item
+    }
+
+  
+    ?>
+
+</div>
+
 </form>    
 
 </div>
 
-</body>
+<div class="container">
+
+    
+
+</div>
+
+<!-- </body> -->
 
 </html>
