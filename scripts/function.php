@@ -458,4 +458,44 @@ function createAllGraphs()
     }
 }
 
+/**
+ * Function for subscribing user to newsletter
+ *
+ * @param [type] $name  Full name of user
+ * @param [type] $email Email of user
+ * @param [type] $sub   Chosen subscription type
+ * 
+ * @return void
+ */
+function subscribe($name, $email, $sub) 
+{
+
+    @include 'connect.php';
+
+    if (!@$conn->ping()) {
+        echo '<h2 class="m-2">No Connection to database try again later!</h2>';
+        return;
+    }
+
+    $email = strtolower($email);
+
+
+    $sql = sprintf("SELECT DISTINCT email FROM subscribers WHERE email = '$email'");
+
+    $result = $conn->query($sql);
+
+    $sql = "";
+
+    if ($result->num_rows === 0) {
+        $sql = sprintf("INSERT INTO subscribers (full_name, email, subscriptions) VALUES ('$name', '$email', '$sub')");
+        echo '<div class="alert alert-success" role="alert">Successfully subscribed: Check email</div>';
+    } else {
+        $sql = sprintf("UPDATE subscribers SET full_name = '$name', subscriptions = '$sub' WHERE email = '$email'");
+        echo '<div class="alert alert-success" role="alert">Updated existing subscription: Check email</div>';
+    }
+
+    $conn->query($sql);
+
+}
+
 ?>
