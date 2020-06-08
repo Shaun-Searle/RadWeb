@@ -174,17 +174,18 @@ body {
 
 .subscribe-container {
     
-    /* margin: auto; */
     height: 100%;
     margin-top: 10%;
-    /* align-items: center; */
 }
 
 .subscribe-form {
     padding: 20px;
     border-radius: 15px;
-    width: 30%;
-    
+    width: 40%;
+}
+
+.user-details {
+    width: 50%;
 }
 
     /* For hiding carousel text on much smaller devices, and adjusting search */
