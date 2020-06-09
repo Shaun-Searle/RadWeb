@@ -12,6 +12,10 @@
  * @link     No Link
  */
 
+
+session_start();
+
+
 /**
  * Retrieves amount of movies of genre both provided
  *
