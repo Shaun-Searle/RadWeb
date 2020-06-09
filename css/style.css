@@ -231,6 +231,18 @@ body {
     }
 }
 
+.subTable {
+    width: 70%;
+
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#subTable {
+    width: 100%;
+}
+
 /* Scaling on different screens */
 
 @media(max-width: 1365px) {.ml-item {width: 11.3%;}}

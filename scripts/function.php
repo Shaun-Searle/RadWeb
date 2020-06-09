@@ -502,4 +502,87 @@ function subscribe($name, $email, $sub)
 
 }
 
+/**
+ * Checks if admin login is valid and logs user in
+ *
+ * @return void
+ */
+function checkAdmin() 
+{
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        $admin = $_POST['adminUsername'];
+        $password = $_POST['adminPassword'];
+
+        // Hardcoded login
+        $harcodedAdmin = "admin";
+        $hardcodedPassword = "password";
+
+        if ($admin === $harcodedAdmin && $password === $hardcodedPassword) {
+            $_SESSION["loggedIn"] = true;
+        } else {
+            echo '<div class="alert alert-success" role="alert">Invalid Login</div>';
+        }
+
+
+    }
+
+}
+
+/**
+ * Displays all subscriber in database
+ *
+ * @return void
+ */
+function subscriberTable() 
+{
+
+    @include 'connect.php';
+
+    if (!@$conn->ping()) {
+        echo '<h2 class="m-2">No Connection to database try again later!</h2>';
+        return;
+    }
+
+    $sql = sprintf("SELECT * FROM subscribers WHERE is_deleted = '0'");
+
+    $result = $conn->query($sql);
+
+    echo '  <div class="subTable">
+            <h2>Subscriber List</h2>
+            <table class="table table-striped subTable" id="subTable">
+            <thead class="thead thead-dark">
+                <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Subscriptions</th>
+                <th scope="col">Remove?</th>
+                </tr>
+            </thead>
+        <tbody>';
+
+    while ($row = $result->fetch_assoc()) {
+
+        $id = $row['subscriber_id'];
+        $username = $row['full_name'];
+        $email = $row['email'];
+        $subscriptions = $row['subscriptions'];
+
+        echo "<tr>";
+        echo "<th scope=row>$id</th>";
+        echo "<td>$username</th>";
+        echo "<td>$email</th>";
+        echo "<td>$subscriptions</th>";
+        echo '<td><button type="button" class="btn btn-sm btn-danger">Remove</button></th>';
+        echo "</tr>";
+
+
+    }
+
+    echo '</tbody></table></div>';
+
+}
+
 ?>
