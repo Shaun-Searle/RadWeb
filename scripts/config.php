@@ -17,5 +17,7 @@
     const DB_USER = "root";
     const DB_PASS = "";
 
+    const ADMIN_EMAIL = "lazepf+b6zpqcgmdtvbc@sharklasers.com";
+
 
 ?>

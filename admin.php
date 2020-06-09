@@ -21,9 +21,30 @@
     require 'template/header.php';
     require 'scripts/function.php';
 
+    if (isset($_POST['btnLogout'])) {
+
+        $_SESSION["loggedIn"] = false;
+    }
+
+    // Only do this if user is "logged in"
     if ($_SESSION["loggedIn"] === true) {
 
+        // Performs user deletion from posted variable
+        if (isset($_POST['delID'])) {
+
+            removeSub($_POST['delID']);
+        }
+        // echo ADMIN_EMAIL;
+        // mail("nvsecctu@sharklasers.com", "User Removal - Automated", "Please remove User ID = 5 from the database.", 'From: MovieDB@stuff.com');
+
         subscriberTable();
+
+        echo "<script>
+            $( document ).ready(function() {
+            $('#subTable tr > *:nth-child('+1+')').toggle();
+        
+            $('#login').hide();
+            });</script>";
     }
 
     ?>
@@ -47,10 +68,10 @@
                                 <label for="checkPass">Show Password</label>
                                 
                                 <div class="form-group text-right">
-                                <input type="submit" name="submit" class="btn btn-dark btn-md" value="Login">
+                                <input type="submit" name="btnLogin" class="btn btn-dark btn-md" value="Login">
                             </div>
                             </div>
-                            
+
                             <?php checkAdmin(); ?>
                          
                         </form>
@@ -75,14 +96,9 @@ function showPass() {
   }
 }
 
-$( document ).ready(function() {
-    $('#subTable tr > *:nth-child('+1+')').toggle();
-
-    $('#login').hide();
-});
-
-
 </script>
 
+
 </body>
+
 </html>
