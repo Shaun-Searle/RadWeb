@@ -501,11 +501,24 @@ function subscribe($name, $email, $sub)
         $sql = sprintf("INSERT INTO subscribers (full_name, email, subscriptions) VALUES ('$name', '$email', '$sub')");
         echo '<div class="alert alert-success" role="alert">Successfully subscribed: Check email</div>';
     } else {
-        $sql = sprintf("UPDATE subscribers SET full_name = '$name', subscriptions = '$sub' WHERE email = '$email'");
+        $sql = sprintf("UPDATE subscribers SET full_name = '$name', subscriptions = '$sub', is_deleted = '0' WHERE email = '$email'");
         echo '<div class="alert alert-success" role="alert">Updated existing subscription: Check email</div>';
     }
 
     $conn->query($sql);
+
+    if ($sub === "both") {
+        $cat = "<b>Monthy and New Releases Newsletters.</b>";
+    } else {
+        $cat = "<b>";
+        $cat = ($sub === "monthly") ? "Monthly": "New Releases";
+        $cat .= " Newsletter.</b>";
+    }
+
+    $message = sprintf("Hello %s,\n\nYou have successfully subscribed to the %s\n\nUnsubscribe any time on the subscribe page of the website!", $name, $cat, $email);
+
+
+    sendMail($email, "MovieDB - Subscription", $message);
 
 }
 
@@ -698,9 +711,12 @@ function sendMail($target, $subject, $body)
 
     //send the message, check for errors
     if (!$mail->send()) {
-        echo 'Mailer Error: '. $mail->ErrorInfo;
+        // Will need to enable server debug as well if using
+        // echo 'Mailer Error: '. $mail->ErrorInfo;
+
+        echo '<div class="alert alert-danger" role="alert">Unable to Mail admin.</div>';
     } else {
-        echo 'Message sent!';
+        echo '<div class="alert alert-success" role="alert">Sent Email Alert</div>';
 
     }
 }

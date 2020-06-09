@@ -34,8 +34,6 @@
 
             removeSub($_POST['delID']);
         }
-        // echo ADMIN_EMAIL;
-        // mail("nvsecctu@sharklasers.com", "User Removal - Automated", "Please remove User ID = 5 from the database.", 'From: MovieDB@stuff.com');
 
         subscriberTable();
 
