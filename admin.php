@@ -27,7 +27,7 @@
     }
 
     // Only do this if user is "logged in"
-    if ($_SESSION["loggedIn"] === true) {
+    if (@$_SESSION["loggedIn"] === true) {
 
         // Performs user deletion from posted variable
         if (isset($_POST['delID'])) {
