@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2020 at 05:22 AM
+-- Generation Time: Jun 10, 2020 at 10:02 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -57,8 +57,8 @@ INSERT INTO `movies` (`ID`, `Title`, `Studio`, `Status`, `Sound`, `Versions`, `R
 (4, '187: Special Edition', 'Warner Brothers', 'Out', '5.1', 'LBX, 16:9', '24.98', 'R', 1997, 'Mystery/Suspense', '1.85:1', '0.60'),
 (5, '1941: Collector\'s Edition', 'Universal', 'Out', '5.1', 'LBX', '34.98', 'NR', 1979, 'Comedy', '2.35:1', '0.70'),
 (6, '200 Cigarettes', 'Paramount', 'Out', '5.1', 'LBX, 16:9', '29.99', 'R', 1999, 'Comedy', '1.85:1', '1.00'),
-(7, '2001: A Space Odyssey (Original Release)', 'MGM/UA', 'Discontinued', '5.1', 'LBX', '24.98', 'NR', 1968, 'SciFi', '2.20:1', '1.60'),
-(8, '2001: A Space Odyssey (Repackaged Version)', 'Warner Brothers', 'Discontinued', '5.1', 'LBX', '24.98', 'G', 1968, 'SciFi', '2.20:1', '2.60'),
+(7, '2001: A Space Odyssey (Original Release)', 'MGM/UA', 'Discontinued', '5.1', 'LBX', '24.98', 'NR', 1968, 'SciFi', '2.20:1', '1.70'),
+(8, '2001: A Space Odyssey (Repackaged Version)', 'Warner Brothers', 'Discontinued', '5.1', 'LBX', '24.98', 'G', 1968, 'SciFi', '2.20:1', '2.70'),
 (9, '2010: The year We Made Contact', 'MGM/UA', 'Discontinued', '5.1', 'LBX', '24.98', 'PG', 1984, 'SciFi', '2.35:1', '0.00'),
 (10, '3 Days Of The Condor', 'Paramount', 'Out', '5.1', 'LBX, 16:9', '29.99', 'R', 1975, 'Mystery/Suspense', '2.35:1', '0.60'),
 (11, '48 HRS.', 'Paramount', 'Out', '5.1', 'LBX', '29.99', 'R', 1983, 'Action/Adventure', '1.85:1', '0.60'),
@@ -66,7 +66,7 @@ INSERT INTO `movies` (`ID`, `Title`, `Studio`, `Status`, `Sound`, `Versions`, `R
 (13, '9 1/2 Weeks', 'MGM/UA', 'Discontinued', 'SUR', 'LBX', '24.98', 'NR', 1986, 'Drama', '1.66:1', '0.60'),
 (14, 'Above The Law', 'Warner Brothers', 'Out', '5.1', '4:3, LBX, 16:9', '19.98', 'R', 1988, 'Action/Adventure', '1.85:1', '0.90'),
 (15, 'Absolute Power', 'Warner Brothers', 'Out', '5.1', '4:3, LBX, 16:9', '24.99', 'R', 1997, 'Action/Adventure', '2.35:1', '0.60'),
-(16, 'Ace Ventura: Pet Detective', 'Warner Brothers', 'Out', '5.1', '4:3', '35.90', 'PG-13', 1994, 'Comedy', '1.33:1', '0.90'),
+(16, 'Ace Ventura: Pet Detective', 'Warner Brothers', 'Out', '5.1', '4:3', '35.90', 'PG-13', 1994, 'Comedy', '1.33:1', '1.30'),
 (17, 'Ace Ventura: When Nature Calls', 'Warner Brothers', 'Out', '5.1', '4:3, LBX, 16:9', '55.55', 'PG-13', 1995, 'Comedy', '2.35:1', '1.20'),
 (18, 'Action Jackson', 'Warner Brothers', 'Out', '2.0', '4:3', '14.98', 'R', 1988, 'Action/Adventure', '1.33:1', '0.90'),
 (19, 'Action Pack Gift Set', 'Warner Brothers', 'Out', 'VAR', 'VAR', '99.92', 'VAR', 1973, 'Action/Adventure', 'VAR', '0.90'),
@@ -102,12 +102,12 @@ INSERT INTO `movies` (`ID`, `Title`, `Studio`, `Status`, `Sound`, `Versions`, `R
 (49, 'Annie Hall', 'MGM/UA', 'Out', '1.0', '4:3, LBX', '19.98', 'PG', 1976, 'Action/Adventure', '1.85:1', '1.30'),
 (50, 'Another 48 Hours', 'Paramount', 'Out', '5.1', 'LBX', '29.99', 'R', 1990, 'Action/Adventure', '1.85:1', '0.70'),
 (51, 'Apocalypse Now', 'Paramount', 'Out', '5.1', 'LBX, 16:9', '29.99', 'R', 1979, 'Action/Adventure', '2.00:1', '0.90'),
-(52, 'Apollo 13 (DTS)', 'Universal', 'Out', 'DTS', 'LBX, 16:9', '34.98', 'PG', 1995, 'Drama', '2.35:1', '1.30'),
+(52, 'Apollo 13 (DTS)', 'Universal', 'Out', 'DTS', 'LBX, 16:9', '34.98', 'PG', 1995, 'Drama', '2.35:1', '1.70'),
 (53, 'Apollo 13: Collector\'s Edition', 'Universal', 'Out', '5.1', 'LBX, 16:9', '34.98', 'PG', 1995, 'Drama', '2.35:1', '1.00'),
 (54, 'Apostle: Collector\'s Edition', 'Universal', 'Discontinued', 'SUR', 'LBX', '34.98', 'PG-13', 1997, 'Drama', '1.85:1', '0.80'),
 (55, 'Army Of Darkness', 'Universal', 'Out', 'SUR', 'LBX', '24.98', 'R', 1993, 'Horror', '1.85:1', '0.60'),
 (56, 'Art Garfunkel: Across America', 'Warner Brothers', 'Out', '2.0', '4:3', '24.99', 'NR', 2000, 'Music', '1.33:1', '0.60'),
-(57, 'Arthur', 'Warner Brothers', 'Out', '2.0', '4:3', '19.98', 'PG', 1981, 'Comedy', '1.33:1', '1.40'),
+(57, 'Arthur', 'Warner Brothers', 'Out', '2.0', '4:3', '19.98', 'PG', 1981, 'Comedy', '1.33:1', '1.80'),
 (58, 'Assassins', 'Warner Brothers', 'Out', '5.1', '4:3, LBX, 16:9', '19.98', 'R', 1995, 'Action/Adventure', '1.85:1', '0.90'),
 (59, 'Astronaut\'s Wife, The', 'New Line', 'Out', '5.1', 'LBX, 16:9', '24.98', 'R', 1999, 'SciFi', '1.78:1', '0.60'),
 (60, 'At First Sight', 'MGM/UA', 'Out', '5.1', '4:3, LBX, 16:9', '24.98', 'PG-13', 1999, 'Drama', '1.78:1', '1.10'),
@@ -147,7 +147,7 @@ INSERT INTO `movies` (`ID`, `Title`, `Studio`, `Status`, `Sound`, `Versions`, `R
 (94, 'Best Man', 'Universal', 'Out', '5.1/DTS', 'LBX, 16:9', '24.98', 'R', 1999, 'Comedy', '1.85:1', '0.30'),
 (95, 'Betrayed', 'MGM/UA', 'Out', 'SUR', '4:3, LBX', '24.98', 'R', 1988, 'Mystery/Suspense', '1.85:1', '0.20'),
 (96, 'Betsy', 'Warner Brothers', 'Out', '1.0', '4:3', '14.98', 'R', 1978, 'Drama', '1.33:1', '0.20'),
-(97, 'Big Bully', 'Warner Brothers', 'Out', '5.1', 'LBX', '24.98', 'PG', 1996, 'Comedy', '1.85:1', '0.80'),
+(97, 'Big Bully', 'Warner Brothers', 'Out', '5.1', 'LBX', '24.98', 'PG', 1996, 'Comedy', '1.85:1', '1.20'),
 (98, 'Big Red One', 'Warner Brothers', 'Out', 'SUR', '4:3, LBX, 16:9', '19.98', 'PG', 1980, 'Action/Adventure', '1.85:1', '0.90'),
 (99, 'Big Sleep', 'Warner Brothers', 'Out', '1.0', '4:3', '19.98', 'NR', 1946, 'Mystery/Suspense', '1.33:1', '0.20'),
 (100, 'Billy Madison', 'Universal', 'Out', '5.1', 'LBX, 16:9', '24.98', 'PG-13', 1995, 'Comedy', '1.85:1', '0.50'),
@@ -654,7 +654,7 @@ INSERT INTO `movies` (`ID`, `Title`, `Studio`, `Status`, `Sound`, `Versions`, `R
 (600, 'Lord Of Illusions: Special Edition', 'MGM/UA', 'Out', '5.1', 'LBX, 16:9', '24.98', 'NR', 1995, 'Horror', '1.78:1', '0.00'),
 (601, 'Lost And Found', 'Warner Brothers', 'Out', '2.0', 'LBX', '19.98', 'PG-13', 1999, 'Comedy', '1.85:1', '0.00'),
 (602, 'Lost Boys', 'Warner Brothers', 'Out', '5.1', '4:3, LBX, 16:9', '24.98', 'R', 1987, 'Drama', '2.35:1', '0.00'),
-(603, 'Lost In Space: The Movie: Platinum Edition', 'New Line', 'Out', '5.1', 'LBX, 16:9', '24.98', 'PG-13', 1998, 'SciFi', '2.35:1', '0.70'),
+(603, 'Lost In Space: The Movie: Platinum Edition', 'New Line', 'Out', '5.1', 'LBX, 16:9', '24.98', 'PG-13', 1998, 'SciFi', '2.35:1', '0.80'),
 (604, 'Love And Death On Long Island', 'Universal', 'Out', 'SUR', 'LBX, 16:9', '24.98', 'PG-13', 1997, 'Comedy', '1.85:1', '0.00'),
 (605, 'Love Jones', 'New Line', 'Out', '5.1', '4:3, LBX, 16:9', '24.98', 'R', 1997, 'Drama', '1.85:1', '0.00'),
 (606, 'Lovesick', 'Warner Brothers', 'Out', '1.0', '4:3', '14.98', 'PG', 1983, 'Comedy', '1.33:1', '0.00'),
@@ -734,7 +734,7 @@ INSERT INTO `movies` (`ID`, `Title`, `Studio`, `Status`, `Sound`, `Versions`, `R
 (680, 'Cartoon Crack-Ups', 'Warner Brothers', 'Out', '1.0', '4:3', '14.98', 'NR', 2001, 'Animation', '1.33:1', '0.00'),
 (681, 'Dream Is Alive: IMAX', 'Warner Brothers', 'Out', '5.1', '4:3', '19.98', 'NR', 1985, 'Special Interest', '1.33:1', '0.00'),
 (682, 'V: The Original Miniseries (Special Edition)', 'Warner Brothers', 'Out', '2.0', 'LBX, 16:9', '19.98', 'NR', 1983, 'SciFi', '1.85:1', '0.00'),
-(683, '2001: A Space Odyssey', 'Warner Brothers', 'Out', '5.1', 'LBX', '24.98', 'G', 1968, 'SciFi', '2.35:1', '0.90'),
+(683, '2001: A Space Odyssey', 'Warner Brothers', 'Out', '5.1', 'LBX', '24.98', 'G', 1968, 'SciFi', '2.35:1', '1.00'),
 (684, 'Barry Lyndon', 'Warner Brothers', 'Out', '5.1', '4:3', '24.98', 'PG', 1975, 'Drama', '1.33:1', '0.00'),
 (685, 'Before Night Falls (Special Edition)', 'New Line', 'Out', '5.1', 'LBX', '24.98', 'R', 2000, 'Drama', '1.85:1', '0.00'),
 (686, 'Best In Show', 'Warner Brothers', 'Out', '5.1', 'LBX, 16:9', '24.98', 'PG-13', 2000, 'Comedy', '1.85:1', '0.00'),
@@ -1111,9 +1111,9 @@ INSERT INTO `movies` (`ID`, `Title`, `Studio`, `Status`, `Sound`, `Versions`, `R
 (1056, 'South Park 3-Pack #1', 'Warner Brothers', 'Out', '2.0', '4:3', '59.92', 'NR', 1973, 'Comedy', '1.33:1', '0.00'),
 (1057, 'South Park 3-Pack #2', 'Warner Brothers', 'Out', '2.0', '4:3', '59.92', 'NR', 1977, 'Comedy', '1.33:1', '0.00'),
 (1058, 'South Park: Bigger, Longer And Uncut', 'Paramount', 'Out', '5.1', 'LBX, 16:9', '29.99', 'R', 1999, 'Comedy', '1.85:1', '0.00'),
-(1059, 'Space Jam', 'Warner Brothers', 'Discontinued', '5.1', '4:3', '24.98', 'PG', 1996, 'Family', '1.33:1', '0.80'),
-(1060, 'Space Jam: Special Edition', 'Warner Brothers', 'Out', '5.1', '4:3', '24.98', 'PG', 1996, 'Family', '1.33:1', '1.10'),
-(1061, 'Spaceballs: Special Edition', 'MGM/UA', 'Out', '2.0', '4:3, LBX', '24.98', 'PG', 1987, 'Comedy', '1.85:1', '1.10'),
+(1059, 'Space Jam', 'Warner Brothers', 'Discontinued', '5.1', '4:3', '24.98', 'PG', 1996, 'Family', '1.33:1', '0.90'),
+(1060, 'Space Jam: Special Edition', 'Warner Brothers', 'Out', '5.1', '4:3', '24.98', 'PG', 1996, 'Family', '1.33:1', '1.20'),
+(1061, 'Spaceballs: Special Edition', 'MGM/UA', 'Out', '2.0', '4:3, LBX', '24.98', 'PG', 1987, 'Comedy', '1.85:1', '1.20'),
 (1062, 'Spartacus', 'Universal', 'Out', '5.1', 'LBX', '26.98', 'NR', 1960, 'Action/Adventure', '2.35:1', '0.00'),
 (1063, 'Spawn: The Movie: Platinum Edition', 'New Line', 'Out', '5.1', '4:3, LBX, 16:9', '24.98', 'R', 1997, 'Action/Adventure', '1.85:1', '0.00'),
 (1064, 'Special Edition Gift Set', 'Warner Brothers', 'Out', 'VAR', 'VAR', '99.92', 'VAR', 1970, 'VAR', 'VAR', '0.00'),
@@ -1989,7 +1989,7 @@ INSERT INTO `movies` (`ID`, `Title`, `Studio`, `Status`, `Sound`, `Versions`, `R
 (1932, 'Paris When It Sizzles', 'Paramount', 'Out', '1.0', 'LBX, 16:9', '29.00', 'NR', 1964, 'Comedy', '1.85:1', '0.00'),
 (1933, 'Sabrina', 'Paramount', 'Out', '1.0', '4:3', '29.99', 'NR', 1954, 'Comedy', '1.33:1', '0.00'),
 (1934, 'Miss Congeniality (Special Edition)', 'Warner Brothers', 'Out', '5.1', 'LBX, 16:9', '26.98', 'PG-13', 2000, 'Comedy', '1.85:1', '0.00'),
-(1935, 'Space Cowboys', 'Warner Brothers', 'Out', '5.1', 'LBX, 16:9', '26.98', 'PG-13', 2000, 'SciFi', '1.85:1', '0.70'),
+(1935, 'Space Cowboys', 'Warner Brothers', 'Out', '5.1', 'LBX, 16:9', '26.98', 'PG-13', 2000, 'SciFi', '1.85:1', '0.80'),
 (1936, 'Circuit #9', 'Warner Music', 'Out', '5.1', '4:3', '14.98', 'NR', 2001, 'Music', '1.33:1', '0.00'),
 (1937, 'Playboy Centerfold: Bernaola Twins: 2000 Playmate Of The Year', 'Universal', 'Discontinued', '2.0', '4:3', '24.98', 'UR', 1999, 'Late Night', '1.33:1', '0.00'),
 (1938, 'Playboy Girls Next Door: Naughty And Nice', 'Universal', 'Discontinued', '2.0', '4:3', '24.98', 'UR', 1997, 'Late Night', '1.33:1', '0.00'),
@@ -2061,8 +2061,8 @@ INSERT INTO `movies` (`ID`, `Title`, `Studio`, `Status`, `Sound`, `Versions`, `R
 (2004, 'Howling', 'MGM/UA', 'Out', '2.0', 'LBX, 16:9', '14.95', 'R', 1980, 'Horror', '1.85:1', '0.00'),
 (2005, 'Invaders From Mars (1986)', 'MGM/UA', 'Out', '2.0', 'LBX, 16:9', '19.99', 'PG', 1986, 'SciFi', '2.35:1', '0.00'),
 (2006, 'Island Of Dr. Moreau (1977)', 'MGM/UA', 'Out', '1.0', 'LBX, 16:9', '14.95', 'PG', 1977, 'Horror', '1.85:1', '0.00'),
-(2007, 'It! The Terror From Beyond Space', 'MGM/UA', 'Out', '1.0', '4:3', '14.95', 'NR', 1958, 'SciFi', '1.33:1', '0.70'),
-(2008, 'Killer Klowns From Outer Space (Special Edition)', 'MGM/UA', 'Out', '2.0', 'LBX, 16:9', '14.95', 'PG-13', 1988, 'Horror', '1.85:1', '0.40'),
+(2007, 'It! The Terror From Beyond Space', 'MGM/UA', 'Out', '1.0', '4:3', '14.95', 'NR', 1958, 'SciFi', '1.33:1', '0.80'),
+(2008, 'Killer Klowns From Outer Space (Special Edition)', 'MGM/UA', 'Out', '2.0', 'LBX, 16:9', '14.95', 'PG-13', 1988, 'Horror', '1.85:1', '0.50'),
 (2009, 'Mars Needs Women', 'MGM/UA', 'Out', '2.0', '4:3', '14.95', 'NR', 1968, 'SciFi', '1.33:1', '0.00'),
 (2010, 'Monster That Challenged The World', 'MGM/UA', 'Out', '1.0', '4:3', '14.95', 'G', 1957, 'SciFi', '1.33:1', '0.20'),
 (2011, 'Planet Of The Vampires', 'MGM/UA', 'Out', '1.0', 'LBX', '14.96', 'NR', 1965, 'Horror', '1.85:1', '0.00'),
@@ -2203,7 +2203,7 @@ INSERT INTO `movies` (`ID`, `Title`, `Studio`, `Status`, `Sound`, `Versions`, `R
 (2145, 'Rammstein: Live Aus Berlin', 'Universal', 'Out', '5.1', '4:3', '19.98', 'NR', 1999, 'Music', '1.33:1', '0.00'),
 (2146, 'Rigoletto: Verdi: Riccardo Chailly', 'Universal', 'Out', '2.0', '4:3', '24.98', 'NR', 1976, 'Music', '1.33:1', '0.00'),
 (2147, 'Santana: Sacred Fire: Live In Mexico', 'Universal', 'Out', '2.0', '4:3', '19.98', 'NR', 1993, 'Music', '1.33:1', '0.00'),
-(2148, 'Doctor Who: Spearhead From Space (Special Edition)', 'Warner Brothers', 'Pending', '1.0', '4:3', '24.98', 'NR', 1978, 'TV Classics', '1.33:1', '0.40'),
+(2148, 'Doctor Who: Spearhead From Space (Special Edition)', 'Warner Brothers', 'Pending', '1.0', '4:3', '24.98', 'NR', 1978, 'TV Classics', '1.33:1', '0.50'),
 (2149, 'Doctor Who: The Five Doctors (Special Edition)', 'Warner Brothers', 'Pending', '1.0', '4:3', '24.98', 'NR', 1983, 'TV Classics', '1.33:1', '0.00'),
 (2150, 'Survivor: Australian Outback: Season #2: Greatest And Most Outrageous Moments', 'Paramount', 'Pending', '2.0', '4:3', '19.99', 'NR', 2001, 'TV Classics', '1.33:1', '0.20'),
 (2151, 'Charlotte\'s Web (Pan & Scan)', 'Paramount', 'Out', '1.0', '4:3 P&S', '24.99', 'G', 1973, 'Anime', '1.33:1', '0.20'),
@@ -2244,12 +2244,12 @@ INSERT INTO `movies` (`ID`, `Title`, `Studio`, `Status`, `Sound`, `Versions`, `R
 (2186, 'Colors', 'MGM/UA', 'Pending', '2.0', 'LBX, 16:9', '14.95', 'R', 1988, 'Drama', '1.85:1', '0.00'),
 (2187, 'Cornbread, Earl And Me', 'MGM/UA', 'Pending', '1.0', 'LBX, 16:9', '14.95', 'PG', 1974, 'Drama', '1.85:1', '0.00'),
 (2188, 'Craig David: Fill Me In DVD Single', 'Warner Music', 'Out', '5.1', '4:3', '7.99', 'NR', 2000, 'Music', '1.33:1', '0.00'),
-(2189, 'Destiny In Space: IMAX', 'Warner Brothers', 'Pending', '2.0', '4:3', '19.98', 'NR', 1994, 'Special Interest', '1.33:1', '0.40'),
+(2189, 'Destiny In Space: IMAX', 'Warner Brothers', 'Pending', '2.0', '4:3', '19.98', 'NR', 1994, 'Special Interest', '1.33:1', '0.50'),
 (2190, 'Five On The Black Hand Side', 'MGM/UA', 'Pending', '1.0', 'LBX', '14.95', 'PG', 1973, 'Comedy', '1.85:1', '0.00'),
 (2191, 'Hail Columbia!: IMAX', 'Warner Brothers', 'Pending', '2.0', '4:3', '19.98', 'NR', 1995, 'Special Interest', '1.33:1', '0.00'),
 (2192, 'Heart Of Dixie', 'MGM/UA', 'Pending', '1.0', 'LBX, 16:9', '14.95', 'PG', 1989, 'Drama', '1.85:1', '0.00'),
 (2193, 'Hell Up In Harlem', 'MGM/UA', 'Pending', '1.0', 'LBX, 16:9', '14.95', 'R', 1973, 'Action/Adventure', '1.85:1', '0.00'),
-(2194, 'IMAX Space Collection', 'Warner Brothers', 'Pending', '2.0', '4:3', '98.92', 'NR', 1974, 'Special Interest', '1.33:1', '0.40'),
+(2194, 'IMAX Space Collection', 'Warner Brothers', 'Pending', '2.0', '4:3', '98.92', 'NR', 1974, 'Special Interest', '1.33:1', '0.50'),
 (2195, 'K.D. Lang: Live By Request', 'Warner Music', 'Out', '2.0', '4:3', '24.98', 'NR', 2000, 'Music', '1.33:1', '0.00'),
 (2196, 'MacArthur', 'Universal', 'Pending', '2.0', '4:3', '24.98', 'PG', 1977, 'Drama', '1.33:1', '0.60'),
 (2197, 'Making The Grade', 'MGM/UA', 'Pending', '1.0', 'LBX, 16:9', '14.95', 'R', 1984, 'Comedy', '1.85:1', '0.00'),
@@ -2315,7 +2315,7 @@ INSERT INTO `movies` (`ID`, `Title`, `Studio`, `Status`, `Sound`, `Versions`, `R
 (2257, 'Invasion U.S.A.', 'MGM/UA', 'Pending', '2.0', 'LBX, 16:9', '14.95', 'R', 1985, 'Action/Adventure', '1.85:1', '0.00'),
 (2258, 'Lone Wolf McQuade', 'MGM/UA', 'Pending', '1.0', 'LBX, 16:9', '14.95', 'PG', 1983, 'Action/Adventure', '1.85:1', '0.00'),
 (2259, 'Lord Of The Flies (1990)', 'MGM/UA', 'Pending', '2.0', 'LBX, 16:9', '14.95', 'R', 1990, 'Drama', '1.85:1', '0.00'),
-(2260, 'Morons From Outer Space', 'MGM/UA', 'Pending', '2.0', 'LBX, 16:9', '14.95', 'PG-13', 1985, 'Comedy', '1.85:1', '0.70'),
+(2260, 'Morons From Outer Space', 'MGM/UA', 'Pending', '2.0', 'LBX, 16:9', '14.95', 'PG-13', 1985, 'Comedy', '1.85:1', '0.80'),
 (2261, 'People That Time Forgot', 'MGM/UA', 'Pending', '1.0', 'LBX, 16:9', '14.95', 'PG', 1977, 'SciFi', '1.85:1', '0.00'),
 (2262, 'Strange Invaders', 'MGM/UA', 'Pending', '1.0', 'LBX, 16:9', '14.95', 'PG', 1983, 'SciFi', '1.85:1', '0.00'),
 (2263, 'War Gods Of The Deep', 'MGM/UA', 'Pending', '1.0', 'LBX, 16:9', '14.95', 'NR', 1965, 'SciFi', '2.35:1', '0.00'),
@@ -2354,6 +2354,53 @@ INSERT INTO `movies` (`ID`, `Title`, `Studio`, `Status`, `Sound`, `Versions`, `R
 (2296, 'Josie And The Pussycats (Special Edition/ PG Version)', 'Universal', 'Pending', '5.1/DTS', 'LBX, 16:9', '26.98', 'PG', 2001, 'Comedy', '1.85:1', '0.30'),
 (2297, 'Gone with Sunny', 'Panasonic', 'Discontinued', 'ACS', '1.1', '29.00', 'PG', 2003, 'Dance / Ballet', '1', '0.00'),
 (2298, 'Matrix 2', 'Warner Brothers', 'TBA', '3.0', '3.1', '35.90', 'PG-13', 2004, 'Action/Adventure', '1.2.3', '0.20');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subscribers`
+--
+
+DROP TABLE IF EXISTS `subscribers`;
+CREATE TABLE `subscribers` (
+  `subscriber_id` int(11) NOT NULL,
+  `full_name` varchar(50) COLLATE utf8_bin NOT NULL,
+  `email` varchar(50) COLLATE utf8_bin NOT NULL,
+  `subscriptions` set('both','monthly','hot','') COLLATE utf8_bin NOT NULL,
+  `is_deleted` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `subscribers`
+--
+
+INSERT INTO `subscribers` (`subscriber_id`, `full_name`, `email`, `subscriptions`, `is_deleted`) VALUES
+(6, 'Shaun Searle', 'm204225@tafe.wa.edu.au', 'both', 0),
+(7, 'Jason Different name', 'coolemail@gmail.com', 'hot', 0),
+(8, 'Andrew', 'dubstep@andrew.co', 'monthly', 1),
+(10, 'X Ã† A-Xii', 'lbag1r+ap5glw2b15i44@sharklasers.com', 'hot', 1),
+(11, 'Jerry Bad', 'lbarvt+2h2089d2gk1ok@sharklasers.com', 'both', 0),
+(13, 'Jerry Bad', 'qttpyien@sharklasers.com', 'both', 1);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `subscribers`
+--
+ALTER TABLE `subscribers`
+  ADD PRIMARY KEY (`subscriber_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `subscribers`
+--
+ALTER TABLE `subscribers`
+  MODIFY `subscriber_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
