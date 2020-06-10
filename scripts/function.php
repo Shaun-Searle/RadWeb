@@ -490,6 +490,19 @@ function subscribe($name, $email, $sub)
 
     $email = strtolower($email);
 
+    if(!preg_match('/^[a-zA-Z0-9\s]{3,50}$/', $name)) { 
+
+        echo '<div class="alert alert-danger" role="alert">Please enter valid username!</div>';
+        return;
+    }
+
+
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+
+        echo '<div class="alert alert-danger" role="alert">Please enter valid email!</div>';
+        return;
+   }
+
 
     $sql = sprintf("SELECT DISTINCT email FROM subscribers WHERE email = '$email'");
 
@@ -499,20 +512,19 @@ function subscribe($name, $email, $sub)
 
     if ($result->num_rows === 0) {
         $sql = sprintf("INSERT INTO subscribers (full_name, email, subscriptions) VALUES ('$name', '$email', '$sub')");
-        echo '<div class="alert alert-success" role="alert">Successfully subscribed: Check email</div>';
+        echo '<div class="alert alert-success" role="alert">Successfully subscribed</div>';
     } else {
         $sql = sprintf("UPDATE subscribers SET full_name = '$name', subscriptions = '$sub', is_deleted = '0' WHERE email = '$email'");
-        echo '<div class="alert alert-success" role="alert">Updated existing subscription: Check email</div>';
+        echo '<div class="alert alert-success" role="alert">Updated existing subscription</div>';
     }
 
     $conn->query($sql);
 
     if ($sub === "both") {
-        $cat = "<b>Monthy and New Releases Newsletters.</b>";
+        $cat = "Monthy and New Releases Newsletters.";
     } else {
-        $cat = "<b>";
         $cat = ($sub === "monthly") ? "Monthly": "New Releases";
-        $cat .= " Newsletter.</b>";
+        $cat .= " Newsletter.";
     }
 
     $message = sprintf("Hello %s,\n\nYou have successfully subscribed to the %s\n\nUnsubscribe any time on the subscribe page of the website!", $name, $cat, $email);
@@ -534,6 +546,12 @@ function checkAdmin()
 
         $admin = $_POST['adminUsername'];
         $password = $_POST['adminPassword'];
+
+        if(!preg_match('/^[a-zA-Z0-9\s]{3,50}$/', $admin)) { 
+
+            echo '<div class="alert alert-danger" role="alert">Please enter valid username!</div>';
+            return;
+        }
 
         // Hardcoded login
         $harcodedAdmin = "admin";
@@ -651,6 +669,36 @@ function removeSub($id)
     $conn->query($sql);
 
     sendMail(ADMIN_EMAIL, "Removal Request - Automated", "Please remove User ID: $id From the database. \n\n Automated Alert - MovieDB\n Do not reply.");
+
+}
+
+function unsubscribe($email) {
+
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+
+        echo '<div class="alert alert-danger" role="alert">Please enter valid email!</div>';
+        return;
+   }
+
+    @include 'connect.php';
+
+    if (!@$conn->ping()) {
+        echo '<h2 class="m-2">No Connection to database try again later!</h2>';
+        return;
+    }
+
+    $sql = sprintf("SELECT subscriber_id FROM subscribers WHERE email = '$email' AND is_deleted = 0");
+
+    $result = $conn->query($sql);
+
+    if ($result->num_rows === 0) { 
+
+        echo '<div class="alert alert-danger" role="alert">Email was not subscribed!.</div>';
+    } else {
+        $row = $result->fetch_assoc();
+
+        removeSub($row['subscriber_id']);
+    }
 
 }
 

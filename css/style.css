@@ -130,9 +130,9 @@ body {
     margin-left: 0.6%;
     margin-right: 0.6%;
     margin-top: 20px;
-    display: block;
-    box-sizing: border-box;
 }
+
+
 
 .space-size {
     margin-left: 0.45%;
@@ -188,13 +188,17 @@ body {
     margin-left: auto;
 }
 
+.subscribe-form #unsub {
+    color: black;
+}
+
 .user-details {
     width: 50%;
 }
 
 #login .container {
     margin-top: 10%;
-    max-width: 40%;
+    width: 40%;
     height: auto;
 
     padding: 20px;
@@ -205,8 +209,46 @@ body {
     border: 1px solid #9C9C9C;
   }
 
+.subTable {
+    width: 80%;
 
-    /* For hiding carousel text on much smaller devices, and adjusting search */
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#subTable {
+    width: 100%;
+}
+
+.btn-logout {
+
+    display: inline-block;
+}
+
+/* Scaling on different screens */
+
+@media(max-width: 1365px) {.ml-item {width: 11.3%;}}
+
+@media screen and (min-width: 992px) and (max-width:1100px){.ml-item{ width: 15.46%;}
+    .subTable {width: 97%;}
+    .subscribe-form {width: 70%;}
+}
+
+@media screen and (max-width:991px){
+
+    .ml-item{width: 23.8%;}
+    .stat-image {width: 45%;}
+    .subscribe-form {width: 80%;}
+    .subTable {width: 97%;}
+
+    #login .container {
+    width: 70%
+  }
+
+}
+
+/* For hiding carousel text on much smaller devices, and adjusting search */
 @media(max-width: 670px) {
  
 .carousel {
@@ -229,59 +271,33 @@ body {
     .mv-info {
         font-size: medium;
     }
+
 }
 
-.subTable {
-    width: 80%;
-
-    margin-top: 5%;
-    margin-left: auto;
-    margin-right: auto;
+@media screen and (max-width:480px){
+    
+    .ml-item{width: 47%; margin: 1.5%;} 
+    .stat-image { width: 90%;} 
+    .info-cover{background-size: cover;}
+    .subscribe-form {width: 90%;}
 }
 
-#subTable {
+@media screen and (max-width:420px){
+    .subscribe-form #btnSubmit {
+    margin-top: 3%;
+
     width: 100%;
 }
 
-.btn-logout {
-
-    /* position: relative; */
-    display: inline-block;
-    /* /* margin-left: auto; */
-    /* margin-right:  */
-    /* bottom: 5%; */ 
-    /* text-align: right; */
-}
-
-/* Scaling on different screens */
-
-@media(max-width: 1365px) {.ml-item {width: 11.3%;}}
-
-@media screen and (min-width: 992px) and (max-width:1100px){.ml-item{ width: 15.46%;}
-
-    .subscribe-form {width: 60%;}
-    .subTable {width: 97%;}
-}
-
-@media screen and (max-width:991px){
-    .ml-item{width: 23.8%;}
-    .stat-image {width: 45%;}
-    .subscribe-form {width: 70%;}
-
-    .subTable {width: 97%;}
-
-}
-
-
-@media screen and (max-width:480px){.ml-item{width: 47%; margin: 1.5%;} .stat-image { width: 90%;} .info-cover{background-size: cover;}
-
-
-    .subscribe-form {width: 80%;}
+    .user-details {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width:371px){
     .space-size {
     margin-left: 1%;
     margin-top: 1%;
-}}
+}
+}
 

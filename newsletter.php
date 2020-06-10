@@ -3,7 +3,7 @@
 <?php
 
      /**
-      * Newsletter page Page
+      * Newsletter Page
       *
       * PHP Version 7.4.3
       *
@@ -20,7 +20,7 @@
     require 'scripts/function.php';
 ?>
 
-<!-- <body> -->
+<body>
 
 <div class="container subscribe-container d-flex justify-content-center ">
 <form class="bg-primary subscribe-form" id="subscribeForm" action="newsletter.php" method="post">
@@ -28,12 +28,10 @@
   <div class="form-group user-details">
     <label for="inputUsername">Full Name</label>
     <input type="text" class="form-control" name="inputName" id="inputName" placeholder="Enter Full Name">
-    <!-- <small id="emailHelp" class="form-text text-muted"></small> -->
   </div>
     <div class="form-group user-details">
       <label for="inputEmail">Email address</label>
       <input type="email" class="form-control" name="inputEmail" id="inputEmail" placeholder="Enter email">
-      <!-- <small id="emailHelp" class="form-text text-muted"></small> -->
     </div>
   </div>
   
@@ -50,13 +48,12 @@
     <input class="form-check-input" type="radio" name="subRadio" id="hotRadio" value="hot">
     <label class="form-check-label" for="hotRadio">New Releases</label>
   </div>
-<!-- <div class="text-right"> -->
+<!-- <small id="emailHelp" class="form-text text-muted"></small> -->
   <button type="submit" id="btnSubmit" class="btn btn-outline-dark pull-right">Sign Up!</button>
   <br>
-  <!-- </div> -->
+
 </div>
  
-  
 
 <div class="container mt-2">
   <?php 
@@ -84,15 +81,17 @@
         } else {
              subscribe($name, $email, $sub);
         }
-        
 
         // Main Search function returns echo for each item
     }
-
   
     ?>
 
 </div>
+
+<hr/>
+
+<small> Had enough? <u><a id="unsub" href="unsubscribe.php">Unsubscribe</a></u></small>
 
 </form>    
 
