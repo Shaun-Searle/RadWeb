@@ -26,23 +26,26 @@
         $_SESSION["loggedIn"] = false;
     }
 
-    // Only do this if user is "logged in"
-    if (@$_SESSION["loggedIn"] === true) {
+    if (isset($_SESSION["loggedIn"])) {
 
-        // Performs user deletion from posted variable
-        if (isset($_POST['delID'])) {
+        // Only do this if user is "logged in"
+        if (@$_SESSION["loggedIn"] === true) {
 
-            removeSub($_POST['delID']);
-        }
+            // Performs user deletion from posted variable
+            if (isset($_POST['delID'])) {
 
-        subscriberTable();
+                removeSub($_POST['delID']);
+            }
 
-        echo "<script>
-            $( document ).ready(function() {
-            $('#subTable tr > *:nth-child('+1+')').toggle();
+            subscriberTable();
+
+            echo "<script>
+                $( document ).ready(function() {
+                $('#subTable tr > *:nth-child('+1+')').toggle();
         
-            $('#login').hide();
-            });</script>";
+                $('#login').hide();
+                });</script>";
+        }
     }
 
     ?>

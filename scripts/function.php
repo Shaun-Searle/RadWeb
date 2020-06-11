@@ -547,7 +547,7 @@ function checkAdmin()
         $admin = $_POST['adminUsername'];
         $password = $_POST['adminPassword'];
 
-        if(!preg_match('/^[a-zA-Z0-9\s]{3,50}$/', $admin)) { 
+        if (!preg_match('/^[a-zA-Z0-9\s]{3,50}$/', $admin)) { 
 
             echo '<div class="alert alert-danger" role="alert">Please enter valid username!</div>';
             return;
