@@ -12,6 +12,7 @@
  * @link     No Link
  */
 
+    //Configuration
     const DB_HOST = "localhost";
     const DB_NAME = "movie_db";
     const DB_USER = "root";

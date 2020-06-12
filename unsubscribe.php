@@ -14,6 +14,7 @@
       * @link     No Link
       */
 
+      // Current page
       $currentPage = "Unsubscribe";
 
     require 'template/header.php';

@@ -30,6 +30,7 @@
     require 'scripts/connect.php';
 
     $ID = $_GET['m'];
+    
     if ($conn->ping()) {
         if (isset($ID)) {
 

@@ -490,18 +490,18 @@ function subscribe($name, $email, $sub)
 
     $email = strtolower($email);
 
-    if(!preg_match('/^[a-zA-Z0-9\s]{3,50}$/', $name)) { 
+    if (!preg_match('/^[a-zA-Z0-9\s]{3,50}$/', $name)) { 
 
         echo '<div class="alert alert-danger" role="alert">Please enter valid username!</div>';
         return;
     }
 
 
-    if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
         echo '<div class="alert alert-danger" role="alert">Please enter valid email!</div>';
         return;
-   }
+    }
 
 
     $sql = sprintf("SELECT DISTINCT email FROM subscribers WHERE email = '$email'");
@@ -672,13 +672,21 @@ function removeSub($id)
 
 }
 
-function unsubscribe($email) {
+/**
+ * Unsubscribe function
+ *
+ * @param [type] $email Target Email to unsubscribe
+ * 
+ * @return void
+ */
+function unsubscribe($email) 
+{
 
-    if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
         echo '<div class="alert alert-danger" role="alert">Please enter valid email!</div>';
         return;
-   }
+    }
 
     @include 'connect.php';
 
