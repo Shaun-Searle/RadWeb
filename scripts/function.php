@@ -701,7 +701,7 @@ function unsubscribe($email)
 
     if ($result->num_rows === 0) { 
 
-        echo '<div class="alert alert-danger" role="alert">Email was not subscribed!.</div>';
+        echo '<div class="alert alert-danger" role="alert">Email was not subscribed!</div>';
     } else {
         $row = $result->fetch_assoc();
 
