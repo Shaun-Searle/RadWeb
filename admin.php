@@ -23,7 +23,8 @@
 
     if (isset($_POST['btnLogout'])) {
 
-        session_destroy();        
+        session_destroy();
+        header('Location: admin.php');
     }
 
     if (isset($_SESSION["loggedIn"])) {

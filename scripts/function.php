@@ -574,6 +574,7 @@ function checkAdmin()
         // Check if password matches found user in database
         if (password_verify($password, $row['admin_password'])) {
             $_SESSION["loggedIn"] = true;
+            $_SESSION["admin_name"] = $admin;
             header('Location: admin.php');
 
         } else {
@@ -657,6 +658,16 @@ function createAdmin()
 function subscriberTable() 
 {
 
+    // Add a welcome message
+    $welcome_msg= "";
+
+    if (isset($_SESSION['admin_name'])) {
+        $admin_name = $_SESSION['admin_name'];
+
+        $welcome_msg = "<small>Welcome, $admin_name </small>";
+
+    }
+
     @include 'connect.php';
 
     if (!@$conn->ping()) {
@@ -678,6 +689,7 @@ function subscriberTable()
                 <button class="btn btn-sm btn-dark">Admin Creation</button>
             </form>
             </h2>
+            ' . $welcome_msg . '
             <table class="table table-striped subTable" id="subTable">
             <thead class="thead thead-dark">
                 <tr>
