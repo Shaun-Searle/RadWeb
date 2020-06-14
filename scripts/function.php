@@ -115,7 +115,7 @@ function searchDB($search, $genre, $rating, $year)
 
                 $title = $row['Title'];
                 $ID = $row['ID'];
-                addPopularity($ID, 0.1);
+                addPopularity($ID, $genre, 0.1);
                 
                 $response = queryAPI($title);
 
@@ -143,11 +143,12 @@ function searchDB($search, $genre, $rating, $year)
  * Adds popularity to database record
  *
  * @param [int]    $ID     ID of movie to add popularity
+ * @param [String] $genre  Genre of changed movie
  * @param [String] $amount Amount of popularity to add
  * 
  * @return void
  */
-function addPopularity($ID, $amount) 
+function addPopularity($ID, $genre, $amount) 
 {
     // Check for ID not empty
     if ($ID > 0) {
@@ -157,8 +158,82 @@ function addPopularity($ID, $amount)
         // Update to set popularity of ID
         $sql = sprintf("UPDATE movies SET Popularity = Popularity + $amount WHERE ID = $ID");
         $conn->query($sql);
+
+        checkResult($ID, $genre);
+
+        // Empty genre - Updates all chart if needed
+        $genre = "";
+        checkResult($ID, $genre);
+        
     }
     
+}
+
+/**
+ * Checks if result contains ID
+ *
+ * @param [type] $ID    ID to check
+ * @param [type] $genre Genre of result to check
+ * 
+ * @return void
+ */
+function checkResult($ID, $genre) 
+{
+
+    @include 'connect.php';
+
+    if (!@$conn->ping()) {
+        echo '<h2 class="m-2">No Connection to database try again later!</h2>';
+        return;
+    }
+
+    $where = "";
+
+    // Terniary for manipulating $sql and setting $genre if needed
+    ($genre == "") ? $genre = "All" : $where = "WHERE Genre = '$genre'";
+
+    $sql = sprintf("SELECT ID, Title, Popularity FROM movies $where ORDER BY Popularity DESC LIMIT 10");
+
+        $sth = $conn->query($sql);
+
+        $rows = array();
+
+    while ($r = mysqli_fetch_assoc($sth)) {
+                $rows[] = $r;
+    }
+
+
+    // Crude way of checking if record is present in top ten
+    $found = false;
+
+    foreach ($rows as $outer => $inner) {
+        
+        foreach ($inner as $key => $value) {
+            if ($key === 'ID' && $value === $ID) {
+
+                $found = true;
+            }
+        }
+        
+    }
+
+    if ($found) {
+
+        echo '<h1>WOOOOT</h1>';
+
+        $stored = json_encode($rows);
+
+        $stored = addslashes($stored);
+
+        echo $stored;
+
+        $sql = "INSERT INTO `statistics` (record, genre) VALUES ('$stored', '$genre')";
+
+        $conn->query($sql);
+
+    } else {
+        return;
+    }
 }
 
 /**
@@ -223,10 +298,7 @@ function createGraph($genre)
         echo '<h2 class="m-2">No Connection to database!</h2>';
         return;
     }
-    $where = "";
-
-    // Terniary for manipulating $sql and setting $genre if needed
-    ($genre == "") ? $genre = "All" : $where = "WHERE Genre = '$genre'";
+    
 
     // sql for top ten by popularity matching genre
     $sql = sprintf("SELECT * FROM movies $where ORDER BY Popularity DESC LIMIT 10");

@@ -43,9 +43,6 @@
 
                 $title = $row['Title'];
 
-                // Increases Popularity
-                addPopularity($ID, 0.4);
-
                 $response = queryAPI($title);
                 $desc = ($response['results'][0]['overview'] != "" ? $response['results'][0]['overview'] : "No Description Found.");
                 $genre = $row['Genre'];
@@ -57,6 +54,9 @@
                 $aspect = $row['Aspect'];
                 $popularity = $row['Popularity'];
                 
+                // Increases Popularity
+                addPopularity($ID, $genre, 0.4);
+
                 if (empty($response['results'][0]['backdrop_path'])) {
                     $image = $_SERVER['SERVER_NAME'] . '/moviedb/image/noBack.png';
                 } else {
