@@ -590,11 +590,15 @@ function subscriberTable()
     $result = $conn->query($sql);
 
     echo '  <div class="subTable table-responsive">
-            <h2>Subscriber List<div class="btn-logout ml-3">
-            <form action="admin.php" method="post" class="btn-logout">
-                <input type="submit" name="btnLogout" value="Logout" class="btn btn-sm btn-danger btn-logout">
+            <h2>Subscriber List
+            <form class="btn-logout ml-3" action="admin.php" method="post">
+                <input type="submit" name="btnLogout" value="Logout" class="btn btn-sm btn-danger">
                   </form>
-            </div></h2>
+                  
+            <form class="btn-logout" action="create.php">
+                <button class="btn btn-sm btn-dark">Admin Creation</button>
+            </form>
+            </h2>
             <table class="table table-striped subTable" id="subTable">
             <thead class="thead thead-dark">
                 <tr>
