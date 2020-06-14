@@ -23,7 +23,7 @@
 
     if (isset($_POST['btnLogout'])) {
 
-        $_SESSION["loggedIn"] = false;
+        session_destroy();        
     }
 
     if (isset($_SESSION["loggedIn"])) {
