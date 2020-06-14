@@ -547,23 +547,102 @@ function checkAdmin()
         $admin = $_POST['adminUsername'];
         $password = $_POST['adminPassword'];
 
-        if (!preg_match('/^[a-zA-Z0-9\s]{3,50}$/', $admin)) { 
+        @include 'connect.php';
 
-            echo '<div class="alert alert-danger" role="alert">Please enter valid username!</div>';
+        if (!@$conn->ping()) {
+
+            echo '<div class="alert alert-danger" role="alert">No Connection to database try again later!</div>';
             return;
         }
 
-        // Hardcoded login
-        $harcodedAdmin = "admin";
-        $hardcodedPassword = "password";
+        $sql= sprintf("SELECT * FROM admins WHERE admin_name = '$admin'");
 
-        if ($admin === $harcodedAdmin && $password === $hardcodedPassword) {
-            $_SESSION["loggedIn"] = true;
-            header('Location: admin.php');
-        } else {
-            echo '<div class="alert alert-success" role="alert">Invalid Login</div>';
+        $result = $conn->query($sql);
+
+        if ($result->num_rows === 0) {
+
+            echo '<div class="alert alert-danger" role="alert">Invalid Login</div>';
+            return;
         }
 
+        $row = $result->fetch_assoc();
+
+        echo $row['admin_password'];
+        echo '<br>';
+        echo $password;
+
+        // Check if password matches found user in database
+        if (password_verify($password, $row['admin_password'])) {
+            $_SESSION["loggedIn"] = true;
+            header('Location: admin.php');
+
+        } else {
+            echo '<div class="alert alert-danger" role="alert">Invalid Login</div>';
+        }
+
+        
+
+    }
+
+}
+
+/**
+ * Creates new admin
+ *
+ * @return void
+ */
+function createAdmin() 
+{
+
+    if (isset($_POST['btnCreateAdmin'])) {
+
+        $admin = $_POST['adminUsername'];
+        $password = $_POST['adminPassword'];
+
+        $msg = "";
+
+        // No whitespace, alphanumeric only.
+        if (!preg_match('/^[a-zA-Z0-9]{3,50}$/', $admin)) { 
+
+            $msg = "Please enter valid username!<br>";
+        }
+
+        $msg .= (preg_match('/^(.{8,50})$/', $password)) ? "" : "Password must be > 8 and < 100 long<br>";
+
+        $msg .= (preg_match('/[A-Z]/', $password)) ? "" : "Password must contain a Capital Letter<br>";
+
+        $msg .= (preg_match('/[0-9]/', $password)) ? "" : "Password must contain a number<br>";
+
+        if (strlen($msg) > 0) { 
+
+            echo '<div class="alert alert-danger" role="alert">' . $msg . '</div>';
+            return;
+        }
+
+        $pass_hash = password_hash($password, PASSWORD_DEFAULT);
+
+        @include 'connect.php';
+
+        if (!@$conn->ping()) {
+            echo '<h2 class="m-2">No Connection to database try again later!</h2>';
+            return;
+        }
+
+        $sql = sprintf("SELECT DISTINCT admin_name FROM admins WHERE admin_name = '$admin'");
+
+        $result = $conn->query($sql);
+
+        $sql = "";
+
+        if ($result->num_rows === 0) {
+            $sql = sprintf("INSERT INTO admins (admin_name, admin_password) VALUES ('$admin', '$pass_hash')");
+            echo '<div class="alert alert-success" role="alert">Successfully Added!</div>';
+        } else {
+            $sql = sprintf("UPDATE admins SET admin_password = '$pass_hash' WHERE admin_name = '$admin'");
+            echo '<div class="alert alert-success" role="alert">Updated existing admin password</div>';
+        }
+
+        $conn->query($sql);
         
 
     }
@@ -595,7 +674,7 @@ function subscriberTable()
                 <input type="submit" name="btnLogout" value="Logout" class="btn btn-sm btn-danger">
                   </form>
                   
-            <form class="btn-logout" action="create.php">
+            <form class="btn-logout" action="create.php" method="post">
                 <button class="btn btn-sm btn-dark">Admin Creation</button>
             </form>
             </h2>

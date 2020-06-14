@@ -280,6 +280,7 @@ body {
     .stat-image { width: 90%;} 
     .info-cover{background-size: cover;}
     .subscribe-form {width: 90%;}
+    #login .container {width: 90%}
 }
 
 @media screen and (max-width:420px){
@@ -299,5 +300,6 @@ body {
     margin-left: 1%;
     margin-top: 1%;
 }
+
 }
 

@@ -5,7 +5,7 @@
     <?php
     
     /**
-     * Admin Login/Display Page
+     * Create Admin Page
      *
      * PHP Version 7.4.3
      *
@@ -16,48 +16,29 @@
      * @link     No Link
      */
    
-    $currentPage = "Admin";
+    $currentPage = "Create Admin";
 
     require 'template/header.php';
     require 'scripts/function.php';
 
-    if (isset($_POST['btnLogout'])) {
+    // Ensure user is logged in
+    if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false) {
 
-        $_SESSION["loggedIn"] = false;
-    }
+        header('Location: admin.php');
 
-    if (isset($_SESSION["loggedIn"])) {
-
-        // Only do this if user is "logged in"
-        if (@$_SESSION["loggedIn"] === true) {
-
-            // Performs user deletion from posted variable
-            if (isset($_POST['delID'])) {
-
-                removeSub($_POST['delID']);
-            }
-
-            subscriberTable();
-
-            echo "<script>
-                $( document ).ready(function() {
-                $('#subTable tr > *:nth-child('+1+')').toggle();
-        
-                $('#login').hide();
-                });</script>";
-        }
     }
 
     ?>
 
     <body>
-    <div id="login" <?php $hideLogin ?>>
+
+    <div id="login">
         <div class="container bg-primary">
             <div class="row justify-content-center align-items-center">
                 <div class="col-md-6">
                     <div class="col-md-12">
-                        <form id="login-form" action="admin.php" method="post">
-                        <h3 class="text-center pt-2">Admin Login</h3>
+                        <form id="login-form" action="create.php" method="post">
+                        <h3 class="text-center pt-2">Admin Creation</h3>
                             <div class="form-group">
                                 <label for="adminUsername" class="">Username:</label><br>
                                 <input type="text" name="adminUsername" id="adminUsername" class="form-control" placeholder="Enter username">
@@ -69,12 +50,12 @@
                                 <label for="checkPass">Show Password</label>
                                 
                                 <div class="form-group text-right">
-                                <input type="submit" name="btnLogin" class="btn btn-dark btn-md" value="Login">
+                                <input type="submit" name="btnCreateAdmin" class="btn btn-dark btn-md" value="Login">
                             </div>
                             </div>
 
-                            <?php checkAdmin(); ?>
-                         
+                            <?php createAdmin() ?>
+                            
                         </form>
                     </div>
                 </div>
@@ -94,7 +75,6 @@ function showPass() {
 
 </script>
 
+    </body>
 
-</body>
-
-</html>
+    </html>
