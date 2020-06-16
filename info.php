@@ -96,7 +96,7 @@
                             </div>";
 
                             echo '<form action="" method="post"><div class="vote">
-                            <small>Rate Me!</small>
+                            <small><u>Rate Me!</u></small>
                             <input type="submit" name="upvote" class="btn btn-upvote"></input>
                             <input type="submit" name="downvote" class="btn btn-downvote"></input></div>';
 
