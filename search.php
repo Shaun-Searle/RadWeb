@@ -30,7 +30,7 @@
         // Advanced Search Form
         echo '<form action="./search.php" method="post" class="">
         <h2 class="w-100">Advanced Search</h2>
-        
+
         <div class="form-group w-100">
         <label for="searchTerm"></label>
         <input type="text" class="form-control" 
@@ -46,7 +46,7 @@
         
         echo '
         <label for="searchYear"></label>
-        <input type="text" class="form-control-sm space-size" name="searchYear" placeholder="Year">
+        <input type="text" class="form-control-sm" name="searchYear" placeholder="Year">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
         </form>';
