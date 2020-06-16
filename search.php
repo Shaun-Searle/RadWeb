@@ -39,11 +39,10 @@
         <label for="searchGenre"></label>
         <input type="text" class="form-control-sm" name="searchGenre" placeholder="Genre">
         ';
+        
         @ratingCombo(); //Populates combobox for rating
         
-        echo '</div>
-
-        <div class="form-group">
+        echo '
         <label for="searchYear"></label>
         <input type="text" class="form-control-sm space-size" name="searchYear" placeholder="Year">
         </div>

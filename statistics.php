@@ -23,12 +23,22 @@
 
     ?>
 
-    <div class="statistics-container">
+
 
     <?php 
-    
+
     // Creates Generic Graph
-    createGraph("");
+    historyGraph();
+    
+    ?>
+
+    <hr>
+
+    <div class="statistics-container">
+
+    <h2 class="text-primary">All Current Graphs</h2>
+
+    <?php 
 
     // Checks database and creates graph with each Genre
     createAllGraphs(); 

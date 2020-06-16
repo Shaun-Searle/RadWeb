@@ -159,7 +159,10 @@ function addPopularity($ID, $genre, $amount)
         $sql = sprintf("UPDATE movies SET Popularity = Popularity + $amount WHERE ID = $ID");
         $conn->query($sql);
 
-        checkResult($ID, $genre);
+        // Records information for other charts as well
+        // Disabled to reduce databse clutter
+
+        // checkResult($ID, $genre);
 
         // Empty genre - Updates all chart if needed
         $genre = "";
@@ -204,6 +207,7 @@ function checkResult($ID, $genre)
 
 
     // Crude way of checking if record is present in top ten
+    // If so update the record of top ten graphs
     $found = false;
 
     foreach ($rows as $outer => $inner) {
@@ -219,14 +223,13 @@ function checkResult($ID, $genre)
 
     if ($found) {
 
-        echo '<h1>WOOOOT</h1>';
-
+        // Encode json
         $stored = json_encode($rows);
 
+        // escape for database: TODO Consider other methods like msqli_ real_escape etc
         $stored = addslashes($stored);
 
-        echo $stored;
-
+        // Insert into records
         $sql = "INSERT INTO `statistics` (record, genre) VALUES ('$stored', '$genre')";
 
         $conn->query($sql);
@@ -281,13 +284,77 @@ function createCarousel()
 }
 
 /**
- * Creates a PHPGD graph outputs to file and echos image element
+ * Creates graph with selector for graph history
  *
- * @param [String] $genre Genre to query database for top 10. Empty will search overall
- * 
- * @return void Return is used to break out of a no connection state
+ * @return void
  */
-function createGraph($genre) 
+function historyGraph() 
+{
+
+    echo '<div class="container graph-history">
+            <h2 class="text-primary mt-4">Top Ten</h2>';
+
+
+        echo '<form action="statistics.php" method="get">';
+
+        // Check for selected history
+    if (isset($_GET['history']) && !empty($_GET['history']) && is_numeric($_GET['history'])) {
+        
+        createHistoryGraph($_GET['history']);
+
+    } else {
+        // Generate a default top ten based on current stats
+        createGraph("");
+    }
+
+        include 'connect.php';
+
+    if ($conn->ping()) {
+        $sql = sprintf("SELECT statistic_id, time_changed FROM `statistics` WHERE genre = 'All' ORDER BY statistic_id DESC");
+
+        $result = $conn->query($sql);
+
+
+        if ($result->num_rows > 0) {
+
+            echo '<div class="input-group">
+                <select class="custom-select" name="history">
+                <option></option>
+                ';
+
+            while ($row = $result->fetch_assoc()) {
+
+                $option = sprintf("%s %s", $row['statistic_id'], $row['time_changed']);
+
+                echo "<option value=" . $row['statistic_id'] . ">$option</option>";
+            }
+        }
+
+    } else {
+        echo '<div class="alert alert-danger" role="alert">
+        No Database Connection!
+        </div>';
+    }
+
+        echo '</select>';
+
+        echo '<div class="input-group-append">
+        <input type="submit" class="btn btn-outline-secondary" value="View History">
+      </div></div>';
+        
+        echo '</form></div>';
+        
+
+}
+
+/**
+ * Fetches data for creating graph from previous records
+ *
+ * @param [type] $id ID of record to fetch
+ * 
+ * @return void
+ */
+function createHistoryGraph($id)
 {
 
     //Get Data Set
@@ -298,7 +365,45 @@ function createGraph($genre)
         echo '<h2 class="m-2">No Connection to database!</h2>';
         return;
     }
+
+    $sql = sprintf("SELECT record, genre FROM `statistics` WHERE statistic_id = '$id'");
+
+    $result = $conn->query($sql);
+
+    $row = $result->fetch_assoc();
+
     
+
+    $decoded = stripslashes($row['record']);
+    $decoded = json_decode($decoded, true);
+
+    // foreach ($decoded as $key => $value) {
+    //     echo $value['ID'];
+    // }
+
+    makeGraph($decoded, "");
+
+}
+
+/**
+ * Wrapper for makegraph, creates top ten graph of provided genre
+ *
+ * @param [type] $genre Genre of graph to create
+ * 
+ * @return void
+ */
+function createGraph($genre)
+{
+
+    //Get Data Set
+
+    @include 'connect.php';
+
+    if (!@$conn->ping()) {
+        echo '<h2 class="m-2">No Connection to database!</h2>';
+        return;
+    }
+    $where = "";
 
     // sql for top ten by popularity matching genre
     $sql = sprintf("SELECT * FROM movies $where ORDER BY Popularity DESC LIMIT 10");
@@ -306,9 +411,24 @@ function createGraph($genre)
     // Perform query retrieve results
     $result = $conn->query($sql);
 
-    // Messed with moving results into an array to hold them properly declared here
-    // Faster and simpler to rearrange chart building like I did.
-    // Should be changed back to array here for flexibility
+    makeGraph($result, $genre);
+
+
+}
+
+/**
+ * Creates a PHPGD graph outputs to file and echos image element
+ *
+ * @param [String] $result Result used to create graph
+ * @param [String] $genre  Genre to query database for top 10. Empty will search overall
+ * 
+ * @return void Return is used to break out of a no connection state
+ */
+function makeGraph($result, $genre) 
+{
+
+    // Terniary for manipulating $sql and setting $genre if needed
+    ($genre == "") ? $genre = "All" : $where = "WHERE Genre = '$genre'";
 
     /*
     * Chart properties
@@ -373,9 +493,13 @@ function createGraph($genre)
     $barSpacing = $gridWidth / 10;
     $itemX = $gridLeft + $barSpacing / 2;
 
-    while ($row = $result->fetch_assoc()) {
-        $key = $row['Title'];
-        $value = $row['Popularity'];
+   
+            // echo sprintf("%s %s<br>", $key, $value);
+        
+    
+    foreach ($result as $key => $value) {
+        $key = $value['Title'];
+        $value = $value['Popularity'];
 
         if (strlen($key) >= 30) {
             $key = substr($key, 0, 30) . "...";
@@ -420,6 +544,7 @@ function createGraph($genre)
         $itemX += $barSpacing;
     }
 
+
     // Printing grid lines
     $yLabelSpan = $yMaxValue / 2;
 
@@ -440,6 +565,7 @@ function createGraph($genre)
     }
     //Draw Genre label
     imagettftext($chart, $fontSize, 90, $labelX, $gridHeight, $axisColor, $font, ("Genre: " . $genre));
+
     /*
     * Output image file.
     */
@@ -496,7 +622,7 @@ function ratingCombo()
         if ($result->num_rows > 0) {
 
             echo '<label for="searchRating"></label>
-                <select class="form-control-sm ml-0 mr-1" name="searchRating">
+                <select class="form-control-sm" name="searchRating">
                 <option></option>
                 ';
 
@@ -513,6 +639,7 @@ function ratingCombo()
         No Database Connection!
         </div>';
     }
+    echo '</select>';
 }
 
 /**

@@ -34,6 +34,16 @@
     if ($conn->ping()) {
         if (isset($ID)) {
 
+            // Handles voting
+ 
+            if (isset($_POST['upvote'])) {
+                addPopularity($ID, "", 1);
+            }
+
+            if (isset($_POST['downvote'])) {
+                addPopularity($ID, "", -1);
+            }
+
             // Gets Movie from database
             $sql = sprintf("SELECT * FROM movies WHERE ID = $ID");
             $result = $conn->query($sql);
@@ -53,9 +63,6 @@
                 $retailp = $row['RecRetPrice'];
                 $aspect = $row['Aspect'];
                 $popularity = $row['Popularity'];
-                
-                // Increases Popularity
-                addPopularity($ID, $genre, 0.4);
 
                 if (empty($response['results'][0]['backdrop_path'])) {
                     $image = $_SERVER['SERVER_NAME'] . '/moviedb/image/noBack.png';
@@ -64,12 +71,17 @@
                 }
 
                 // Result Formatting
+
+
                 echo "<div class=info-cover style=background-image:url($image)>
                         </div>
-                        <div class=mv-info> 
+                        
+                        <div class=mv-info>
                             <div class=movieDesc>
-                            <h1>$title</h1>
-                            <p class=desc>$desc</p>
+                            <h1 class=info-title>$title</h1>";
+                            
+
+                            echo "<p class=desc>$desc</p>
                             <div class=mvi-left>
                                 <p><strong>Genre: </strong>$genre</p>
                                 <p><strong>Year: </strong>$year</p>
@@ -81,12 +93,18 @@
                                 <p><strong>Retail Price: </strong>$retailp</p>
                                 <p><strong>Aspect: </strong>$aspect</p>
                                 <p><strong>Popularity: </strong>$popularity</p>
-                            </div>
-                        </div>
-                    </div>
+                            </div>";
+
+                            echo '<form action="" method="post"><div class="vote">
+                            <small>Rate Me!</small>
+                            <input type="submit" name="upvote" class="btn btn-upvote"></input>
+                            <input type="submit" name="downvote" class="btn btn-downvote"></input></div>';
+
+                        echo "</div>
+                    </div>";
                     
                             
-                ";
+                
             }
         } else {
             echo "<h2>Movie Not Found</h2>";

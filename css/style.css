@@ -69,10 +69,12 @@ body {
 
 /* Info page styling and placement */
 .mv-info {
-    margin-left: 2.5%;
-    margin-right: 2.5%;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+
     padding: 10px 10px;
-    position: absolute;
+    position: relative;
     min-height: 40%;
     opacity: 100%;
     font-size: large;
@@ -110,6 +112,59 @@ body {
 
 }
 
+/* Upvote/downvote */
+
+.info-title {
+   display: inline-block;
+   margin: 0;
+}
+
+.vote {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    width: 4rem;
+    height: 7rem;
+    
+    margin-left: auto;
+    margin-right: 3%;
+    
+
+    /* top: 5%; */
+
+}
+
+.btn-upvote {
+    width: 0;
+    height: 0;
+    
+	border-width: 0px 18px 18px 18px;
+
+    border-color: white transparent;
+	border-style: solid;
+
+    background-color: #f6648C;
+    margin: 2px;
+    padding: 0;
+}
+
+.btn-downvote {
+    width: 0;
+    height: 0;
+    
+	border-width: 18px 18px 0px 18px;
+
+    border-color: white transparent;
+	border-style: solid;
+    background-color: #f6648C;
+
+    margin: 2px;
+    padding: 0;
+}
+
+
 /* Carousel */
 #popCarousel {
     width: 100%;
@@ -134,9 +189,9 @@ body {
 
 
 
-.space-size {
+/* .space-size {
     margin-left: 0.45%;
-}
+} */
 
 
 /* Not supported in many cases */
@@ -224,6 +279,15 @@ body {
 .btn-logout {
 
     display: inline-block;
+}
+
+.graph-history {
+
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    text-align: center;
+
 }
 
 /* Scaling on different screens */
