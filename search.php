@@ -30,16 +30,18 @@
         // Advanced Search Form
         echo '<form action="./search.php" method="post" class="">
         <h2 class="w-100">Advanced Search</h2>
+        
         <div class="form-group w-100">
         <label for="searchTerm"></label>
-        <input type="text" class="form-control" name="searchTerm" placeholder="Search">
+        <input type="text" class="form-control" 
+            name="searchTerm" placeholder="Search">
         </div>
 
         <div class="form-group">
         <label for="searchGenre"></label>
         <input type="text" class="form-control-sm" name="searchGenre" placeholder="Genre">
         ';
-        
+
         @ratingCombo(); //Populates combobox for rating
         
         echo '

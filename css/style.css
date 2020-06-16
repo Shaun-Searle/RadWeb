@@ -187,13 +187,6 @@ body {
     margin-top: 20px;
 }
 
-
-
-/* .space-size {
-    margin-left: 0.45%;
-} */
-
-
 /* Not supported in many cases */
 /* width */
 ::-webkit-scrollbar {
@@ -359,11 +352,4 @@ body {
     }
 }
 
-@media screen and (max-width:371px){
-    .space-size {
-    margin-left: 1%;
-    margin-top: 1%;
-}
-
-}
 
