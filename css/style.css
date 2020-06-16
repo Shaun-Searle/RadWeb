@@ -303,6 +303,10 @@ body {
     width: 70%
   }
 
+  #navSearch {
+    width: 100%;
+}
+
 }
 
 /* For hiding carousel text on much smaller devices, and adjusting search */
