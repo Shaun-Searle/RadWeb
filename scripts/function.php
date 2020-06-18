@@ -784,6 +784,7 @@ function checkAdmin()
         if (password_verify($password, $row['admin_password'])) {
             $_SESSION["loggedIn"] = true;
             $_SESSION["admin_name"] = $admin;
+            $_SESSION["perm_level"] = $row['admin_group'];
             header('Location: admin.php');
 
         } else {
@@ -870,8 +871,9 @@ function subscriberTable()
 
     if (isset($_SESSION['admin_name'])) {
         $admin_name = $_SESSION['admin_name'];
+        $perm = $_SESSION["perm_level"];
 
-        $welcome_msg = "<small>Welcome, $admin_name </small>";
+        $welcome_msg = "<small>Welcome, $admin_name Permission level: $perm</small>";
 
     }
 
@@ -890,12 +892,19 @@ function subscriberTable()
             <h2>Subscriber List
             <form class="btn-logout ml-3" action="admin.php" method="post">
                 <input type="submit" name="btnLogout" value="Logout" class="btn btn-sm btn-danger">
-                  </form>
-                  
-            <form class="btn-logout" action="create.php" method="post">
+                  </form>';
+
+    if ($perm >= 100) {
+            echo '<form class="btn-logout ml-1" action="create.php" method="post">
                 <button class="btn btn-sm btn-dark">Admin Creation</button>
-            </form>
-            </h2>
+            </form>';
+    } else {
+        echo '<div class="btn-logout ml-1">
+                <button class="btn btn-sm btn-dark">Admin Creation Disabled</button>
+                </div>';
+    }
+            
+            echo '</h2>
             ' . $welcome_msg . '
             <table class="table table-striped subTable" id="subTable">
             <thead class="thead thead-dark">

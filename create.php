@@ -28,6 +28,11 @@
 
     }
 
+    if (!$_SESSION['perm_level'] >= 100) {
+
+        header('Location: admin.php');
+    }
+
     ?>
 
     <body>
