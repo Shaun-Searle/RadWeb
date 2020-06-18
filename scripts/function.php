@@ -405,6 +405,8 @@ function createGraph($genre)
     }
     $where = "";
 
+    ($genre == "") ? $genre = "All" : $where = "WHERE Genre = '$genre'";
+
     // sql for top ten by popularity matching genre
     $sql = sprintf("SELECT * FROM movies $where ORDER BY Popularity DESC LIMIT 10");
     
@@ -427,8 +429,12 @@ function createGraph($genre)
 function makeGraph($result, $genre) 
 {
 
-    // Terniary for manipulating $sql and setting $genre if needed
-    ($genre == "") ? $genre = "All" : $where = "WHERE Genre = '$genre'";
+
+    if ($genre == "") {
+
+        $genre = "All";
+
+    }
 
     /*
     * Chart properties
@@ -766,10 +772,6 @@ function checkAdmin()
 
         $row = $result->fetch_assoc();
 
-        echo $row['admin_password'];
-        echo '<br>';
-        echo $password;
-
         // Check if password matches found user in database
         if (password_verify($password, $row['admin_password'])) {
             $_SESSION["loggedIn"] = true;
@@ -779,8 +781,6 @@ function checkAdmin()
         } else {
             echo '<div class="alert alert-danger" role="alert">Invalid Login</div>';
         }
-
-        
 
     }
 
