@@ -37,11 +37,11 @@
             // Handles voting
  
             if (isset($_POST['upvote'])) {
-                addPopularity($ID, "", 1);
+                addPopularity($ID, 1);
             }
 
             if (isset($_POST['downvote'])) {
-                addPopularity($ID, "", -1);
+                addPopularity($ID, -1);
             }
 
             // Gets Movie from database

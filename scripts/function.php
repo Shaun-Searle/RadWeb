@@ -143,12 +143,11 @@ function searchDB($search, $genre, $rating, $year)
  * Adds popularity to database record
  *
  * @param [int]    $ID     ID of movie to add popularity
- * @param [String] $genre  Genre of changed movie
  * @param [String] $amount Amount of popularity to add
  * 
  * @return void
  */
-function addPopularity($ID, $genre, $amount) 
+function addPopularity($ID, $amount) 
 {
     // Check for ID not empty
     if ($ID > 0) {
@@ -159,10 +158,19 @@ function addPopularity($ID, $genre, $amount)
         $sql = sprintf("UPDATE movies SET Popularity = Popularity + $amount WHERE ID = $ID");
         $conn->query($sql);
 
-        // Records information for other charts as well
-        // Disabled to reduce databse clutter
+        $sql = sprintf("SELECT Genre FROM movies WHERE ID = $ID");
+        $result = $conn->query($sql);
 
-        // checkResult($ID, $genre);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+
+            $genre = $row['Genre'];
+
+            // Records information for other charts as well
+            checkResult($ID, $genre);
+        }        
+
+        
 
         // Empty genre - Updates all chart if needed
         $genre = "";
