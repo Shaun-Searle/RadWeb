@@ -28,7 +28,7 @@ $pages = array(
     <title><?php echo $currentPage ?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://<?php echo $_SERVER['SERVER_NAME'] . "/moviedb/css/bspink.css" ?>">
+    <link rel="stylesheet" href="http://<?php echo $_SERVER['SERVER_NAME'] . "/moviedb/css/bspink.css?"; echo time(); ?>">
     <link rel="stylesheet" href="css/style.css?<?php echo time()?>">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -54,6 +54,7 @@ $pages = array(
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="nav navbar-nav ml-auto">
         <li><form class="form-inline" action="search.php" Method="GET">
+        <label for="navSearch"></label>
         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" id="navSearch" name="searchBar">
     </form></li>
             <?php

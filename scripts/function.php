@@ -327,7 +327,7 @@ function historyGraph()
 
             echo '<div class="input-group">
                 <select class="custom-select" name="history">
-                <option></option>
+                <option value="" disabled selected>Select History</option>
                 ';
 
             while ($row = $result->fetch_assoc()) {
@@ -470,7 +470,7 @@ function makeGraph($result, $genre)
 
     // Font settings
     $font = __DIR__ . '/../Roboto-Regular.ttf';
-    $fontSize = 10;
+    $fontSize = 12;
 
     // Margin between label and axis
     $labelMargin = 8;
@@ -637,7 +637,7 @@ function ratingCombo()
 
             echo '<label for="searchRating"></label>
                 <select class="form-control-sm" name="searchRating">
-                <option></option>
+                <option value="" disabled selected>Select Rating</option>
                 ';
 
             while ($row = $result->fetch_assoc()) {
