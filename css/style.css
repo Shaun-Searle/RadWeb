@@ -8,6 +8,10 @@ body {
     width: 400px;
 }
 
+.navbar-brand {
+    font-size: 25px;
+}
+
 /* Text for movie card */
 .text-centre-card {
     position: absolute;

@@ -35,6 +35,7 @@
     </div>
   </div>
   
+  <legend>Newsletter Subscription</legend>
 <div class="form-row">
   <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="subRadio" id="bothRadio" checked="" value="both">

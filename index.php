@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 
+<html lang="en">
+
 <?php
 
      /**
@@ -50,7 +52,7 @@
     </a>
   </div>
 
-<body class="col-sm-10">
+<div class="col-sm-10">
 
       <div class="row">
         <div class="center">
@@ -80,6 +82,6 @@
         </div>
         </div>
     </div>
-</body>
+</div>
 
 </html>
